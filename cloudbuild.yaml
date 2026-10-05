@@ -24,5 +24,4 @@ images:
  - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/sample-cd'
 
 substitutions:
-  # TODO (in class): put YOUR OWN GCP project id here
-  _PROJECT_ID: 'xxxxxx'
+  _PROJECT_ID: 'your-project-id-here'  # each person uses their own GCP project id
