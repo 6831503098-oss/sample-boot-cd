@@ -1,0 +1,28 @@
+steps:
+ # Step 1: build the container image from our Dockerfile
+ - name: 'gcr.io/cloud-builders/docker'
+   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/sample-cd:$COMMIT_SHA', '.' ]
+ # Step 2: push the image to Artifact Registry (repository: webdev-dockers)
+ - name: 'gcr.io/cloud-builders/docker'
+   args: ['push', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/sample-cd:$COMMIT_SHA']
+ # Step 3: deploy the image to Cloud Run as service "sample-cd"
+ # (our app listens on 8080, Cloud Run's default - the lab's app will NOT)
+ - name: 'gcr.io/cloud-builders/gcloud'
+   entrypoint: gcloud
+   args:
+   - 'run'
+   - 'deploy'
+   - 'sample-cd'
+   - '--image'
+   - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/sample-cd:$COMMIT_SHA'
+   - '--region'
+   - 'us-central1'
+   - '--allow-unauthenticated'
+   - '--platform'
+   - 'managed'
+images:
+ - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/sample-cd'
+
+substitutions:
+  # TODO (in class): put YOUR OWN GCP project id here
+  _PROJECT_ID: 'xxxxxx'
