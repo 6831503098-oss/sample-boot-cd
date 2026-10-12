@@ -25,3 +25,6 @@ images:
 
 substitutions:
   _PROJECT_ID: 'webdev2026-511403'  # each person uses their own GCP project id
+
+options:
+  logging: CLOUD_LOGGING_ONLY
