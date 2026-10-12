@@ -24,4 +24,4 @@ images:
  - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/webdev-dockers/sample-cd'
 
 substitutions:
-  _PROJECT_ID: 'your-project-id-here'  # each person uses their own GCP project id
+  _PROJECT_ID: 'webdev2026-511403'  # each person uses their own GCP project id
