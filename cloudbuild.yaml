@@ -25,4 +25,4 @@ images:
 
 substitutions:
   # TODO (in class): put YOUR OWN GCP project id here
-  _PROJECT_ID: 'xxxxxx'
+  _PROJECT_ID: 'labcd9'
